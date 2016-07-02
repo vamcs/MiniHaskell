@@ -8,7 +8,7 @@ import org.junit.Test;
 public class TesteExpressaoSoma extends TesteUtil {
 
 	@Test
-	public void testSomaSimples() {
+	public void testeSomaSimples() {
 		ValorInteiro v5  = vi(5);	//new ValorInteiro(5);
 		ValorInteiro v10 = vi(10); 	//new ValorInteiro(10);
 		
@@ -19,7 +19,7 @@ public class TesteExpressaoSoma extends TesteUtil {
 	}
 	
 	@Test
-	public void testSomaComplexa() {
+	public void testeSomaComplexa() {
 		ValorInteiro v5  = vi(5);
 		ValorInteiro v10 = vi(10);
 		ValorInteiro v20 = vi(20);
@@ -34,7 +34,7 @@ public class TesteExpressaoSoma extends TesteUtil {
 	
 	/*
 	@Test
-	public void testSomaErro() {
+	public void testeSomaErro() {
 		ValorBooleano vTrue = new ValorBooleano(true);
 		ValorInteiro v5 = vi(5);
 		

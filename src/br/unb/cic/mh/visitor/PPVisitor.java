@@ -4,6 +4,7 @@ import br.unb.cic.mh.ExpressaoAplicacao;
 import br.unb.cic.mh.ExpressaoBinaria;
 import br.unb.cic.mh.ExpressaoIfThenElse;
 import br.unb.cic.mh.ExpressaoLet;
+import br.unb.cic.mh.ExpressaoNot;
 import br.unb.cic.mh.ExpressaoRefId;
 import br.unb.cic.mh.ValorBooleano;
 import br.unb.cic.mh.ValorInteiro;
@@ -30,6 +31,13 @@ public class PPVisitor extends Adaptador {
 		System.out.print(")");
 	}
 
+	@Override
+	public void visitar(ExpressaoNot exp) {
+		System.out.print("not (");
+		exp.getSub().aceitar(this);
+		System.out.print(")");
+	}
+	
 	@Override
 	public void visitar(ValorInteiro exp) {
 		System.out.print(exp.getValor());

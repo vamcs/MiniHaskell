@@ -8,7 +8,7 @@ import org.junit.Test;
 public class TesteExpressaoLet {
 
 	@Test
-	public void testExpressaoLetSimples() {
+	public void testeExpressaoLetSimples() {
 		// let x = 10
 		// in x + x
 		ExpressaoLet let1 = new ExpressaoLet("x", new ValorInteiro(5),
@@ -18,7 +18,7 @@ public class TesteExpressaoLet {
 	}
 
 	@Test
-	public void testExpressaoLetAninhada() {
+	public void testeExpressaoLetAninhada() {
 		//let x = 5 in x + y
 		ExpressaoLet letInterno = new ExpressaoLet("x", vi(5), 
 				soma(ref("x"), ref("y")));  

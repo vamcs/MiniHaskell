@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TesteVisitor extends TesteUtil {
 
 	@Test
-	public void testPrettyPrinterSoma() {
+	public void testePrettyPrinterSoma() {
 		
 		/*PPV para soma*/
 		ExpressaoSoma soma = soma(vi(10), vi(5));
@@ -18,7 +18,7 @@ public class TesteVisitor extends TesteUtil {
 	}
 	
 	@Test
-	public void testPrettyPrinterSub() {
+	public void testePrettyPrinterSub() {
 		
 		/*PPV para subtração*/
 		ExpressaoSub sub = sub(vi(10), vi(5));
@@ -29,7 +29,7 @@ public class TesteVisitor extends TesteUtil {
 	}
 	
 	@Test
-	public void testPrettyPrinterMult() {
+	public void testePrettyPrinterMult() {
 		
 		/*PPV para multiplicação*/
 		ExpressaoMult mult = mult(vi(10), vi(5));
@@ -40,7 +40,7 @@ public class TesteVisitor extends TesteUtil {
 	}
 	
 	@Test
-	public void testPrettyPrinterDiv() {
+	public void testePrettyPrinterDiv() {
 		
 		/*PPV para divisão*/
 		ExpressaoDiv div = div(vi(10), vi(5));
@@ -51,7 +51,7 @@ public class TesteVisitor extends TesteUtil {
 	}
 	
 	@Test
-	public void testPrettyPrinterAnd() {
+	public void testePrettyPrinterAnd() {
 		
 		/*PPV para operação and*/
 		ExpressaoAnd and = and(vb(true), vb(false));
@@ -62,7 +62,29 @@ public class TesteVisitor extends TesteUtil {
 	}
 	
 	@Test
-	public void testPrettyPrinterComplexoInteiro() {
+	public void testePrettyPrinterOr() {
+		
+		/*PPV para operação and*/
+		ExpressaoOr or = or(vb(true), vb(false));
+		ValorBooleano resOr = (ValorBooleano) or.avaliar();
+		Assert.assertEquals(vb(true), resOr);
+		or.aceitar(prettyPrinter);
+		System.out.println("");
+	}
+	
+	@Test
+	public void testePrettyPrinterNot() {
+		
+		/*PPV para operação and*/
+		ExpressaoNot not = not(vb(true));
+		ValorBooleano resNot = (ValorBooleano) not.avaliar();
+		Assert.assertEquals(vb(false), resNot);
+		not.aceitar(prettyPrinter);
+		System.out.println("");
+	}
+	
+	@Test
+	public void testePrettyPrinterComplexoInteiro() {
 		ExpressaoSoma soma = soma(vi(8), vi(5));
 		ExpressaoSub sub = sub(soma, vi(7));
 		ExpressaoMult mult = mult(sub, vi(6));

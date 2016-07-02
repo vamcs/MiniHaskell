@@ -6,7 +6,7 @@ import org.junit.Test;
 public class TesteExpressaoDiv extends TesteUtil {
 	
 	@Test
-	public void testDivSimples() {
+	public void testeDivSimples() {
 		ValorInteiro v5  = vi(5);	//new ValorInteiro(5);
 		ValorInteiro v10 = vi(10); 	//new ValorInteiro(10);
 		
@@ -17,7 +17,7 @@ public class TesteExpressaoDiv extends TesteUtil {
 	}
 	
 	@Test
-	public void testDivEspecial() {
+	public void testeDivEspecial() {
 		ValorInteiro v5  = vi(5);	//new ValorInteiro(5);
 		ValorInteiro v10 = vi(10); 	//new ValorInteiro(10);
 		
@@ -28,7 +28,7 @@ public class TesteExpressaoDiv extends TesteUtil {
 	}
 	
 	@Test
-	public void testDivComplexa() {
+	public void testeDivComplexa() {
 		ValorInteiro v5  = vi(5);
 		ValorInteiro v10 = vi(10);
 		ValorInteiro v50 = vi(50);

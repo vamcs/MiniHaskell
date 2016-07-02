@@ -6,14 +6,14 @@ import org.junit.Test;
 public class TesteExpressaoAnd extends TesteUtil {
 	
 	@Test
-	public void testAndSimples() {
+	public void testeAndSimples() {
 		ValorBooleano vTrue  = vb(true);	//new ValorBooleano(true);
 		ValorBooleano vFalse = vb(false);	//new ValorBooleano(false);
 		
 		ExpressaoAnd and = and(vTrue, vFalse);	//new ExpressaoAnd(vTrue, vFalse);
 		
 		ValorBooleano res = (ValorBooleano) and.avaliar();
-		Assert.assertEquals(vb(false), res);
+		Assert.assertEquals(vFalse, res);
 		
 		and = and(vTrue, vTrue);
 		res = (ValorBooleano) and.avaliar();
@@ -27,7 +27,7 @@ public class TesteExpressaoAnd extends TesteUtil {
 	}
 	
 	@Test
-	public void testAndComplexa() {
+	public void testeAndComplexa() {
 		ValorBooleano vTrue  = vb(true);	//new ValorBooleano(true);
 		ValorBooleano vFalse = vb(false);	//new ValorBooleano(false);
 		

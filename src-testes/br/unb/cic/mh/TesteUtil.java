@@ -26,6 +26,14 @@ public abstract class TesteUtil {
 		return new ExpressaoAnd(exp1, exp2);
 	}
 	
+	public ExpressaoOr or(Expressao exp1, Expressao exp2) {
+		return new ExpressaoOr(exp1, exp2);
+	}
+	
+	public ExpressaoNot not(Expressao exp) {
+		return new ExpressaoNot(exp);
+	}
+	
 	public ExpressaoRefId ref(String id) {
 		return new ExpressaoRefId(id);
 	}

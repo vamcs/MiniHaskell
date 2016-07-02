@@ -6,7 +6,7 @@ import org.junit.Test;
 public class TesteExpressaoMult extends TesteUtil {
 
 	@Test
-	public void testMultSimples() {
+	public void testeMultSimples() {
 		ValorInteiro v5  = vi(5);	//new ValorInteiro(5);
 		ValorInteiro v10 = vi(10); 	//new ValorInteiro(10);
 		
@@ -17,7 +17,7 @@ public class TesteExpressaoMult extends TesteUtil {
 	}
 	
 	@Test
-	public void testMultComplexa() {
+	public void testeMultComplexa() {
 		ValorInteiro v5  = vi(5);
 		ValorInteiro v10 = vi(10);
 		ValorInteiro v20 = vi(20);
