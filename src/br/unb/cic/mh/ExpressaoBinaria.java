@@ -1,5 +1,7 @@
 package br.unb.cic.mh;
 
+import br.unb.cic.mh.visitor.Visitor;
+
 public abstract class ExpressaoBinaria implements Expressao{
 
 	protected Expressao sub1;
@@ -16,5 +18,12 @@ public abstract class ExpressaoBinaria implements Expressao{
 	
 	public Expressao getSub2() {
 		return sub2;
+	}
+
+	public abstract String getOperando();
+	
+	/*A função aceitar vale para todas as subclasses.*/
+	public void aceitar(Visitor v) {
+		v.visitar(this);
 	}
 }

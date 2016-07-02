@@ -77,7 +77,7 @@ public class AmbienteExecucao {
 		return null;
 	}
 	
-	public boolean variavalDefinida(String id) {
+	public boolean variavelDefinida(String id) {
 		return ambiente.size() > 0 && ambiente.peek().containsKey(id);
 	}
 

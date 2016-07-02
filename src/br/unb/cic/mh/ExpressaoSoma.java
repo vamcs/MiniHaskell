@@ -1,9 +1,8 @@
 package br.unb.cic.mh;
 
-import br.unb.cic.mh.visitor.Visitor;
+public class ExpressaoSoma extends ExpressaoBinariaInteira {
 
-public class ExpressaoSoma extends ExpressaoBinaria {
-
+	/*Utiliza o construtor de ExpressaoBinaria (ExpressoaBinariaInteira -> ExpressaoBinaria)*/
 	public ExpressaoSoma(Expressao s1, Expressao s2) {
 		super(s1, s2);
 	}
@@ -16,24 +15,13 @@ public class ExpressaoSoma extends ExpressaoBinaria {
 		return new ValorInteiro(v1.getValor() + v2.getValor());
 	}
 
-	@Override
-	public Tipo tipo() {
-		Tipo t1 = sub1.tipo();
-		Tipo t2 = sub2.tipo();
-		
-		if(t1.equals(Tipo.INTEIRO) && t2.equals(Tipo.INTEIRO)) {
-			return Tipo.INTEIRO;
-		}
-		return Tipo.ERRO;
-	}
+//	@Override
+//	public void aceitar(Visitor v) {
+//		v.visitar(this);
+//	}
 
 	@Override
-	public boolean checarTipo() {
-		return tipo().equals(Tipo.INTEIRO);
-	}
-
-	@Override
-	public void aceitar(Visitor v) {
-		v.visitar(this);
+	public String getOperando() {
+		return "+";
 	}
 }
