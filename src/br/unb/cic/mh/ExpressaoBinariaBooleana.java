@@ -7,7 +7,8 @@ package br.unb.cic.mh;
 *	@author vamcs
 */
 public abstract class ExpressaoBinariaBooleana extends ExpressaoBinaria {
-
+	
+	/*Utilização do construtor de ExpressaoBinaria.*/
 	public ExpressaoBinariaBooleana(Expressao s1, Expressao s2) {
 		super(s1, s2);
 	}

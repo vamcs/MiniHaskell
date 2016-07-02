@@ -3,67 +3,73 @@ package br.unb.cic.mh;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.unb.cic.mh.visitor.PPVisitor;
-
+/*Utiliza funções e variáveis definidas em TesteUtil*/
 public class TesteVisitor extends TesteUtil {
 
 	@Test
-	public void TestePrettyPrinterSoma() {
-		ValorInteiro v5 = vi(5);
-		ValorInteiro v10 = vi(10);
-		
-		PPVisitor v = new PPVisitor();
+	public void testPrettyPrinterSoma() {
 		
 		/*PPV para soma*/
-		ExpressaoSoma soma = soma(v10, v5);
+		ExpressaoSoma soma = soma(vi(10), vi(5));
 		ValorInteiro resSoma = (ValorInteiro)soma.avaliar();
 		Assert.assertEquals(vi(15), resSoma);
-		soma.aceitar(v);
+		soma.aceitar(prettyPrinter);
 		System.out.println("");
 	}
 	
 	@Test
-	public void TestePrettyPrinterSub() {
-		ValorInteiro v5 = vi(5);
-		ValorInteiro v10 = vi(10);
-		
-		PPVisitor v = new PPVisitor();
+	public void testPrettyPrinterSub() {
 		
 		/*PPV para subtração*/
-		ExpressaoSub sub = sub(v10, v5);
+		ExpressaoSub sub = sub(vi(10), vi(5));
 		ValorInteiro resSub = (ValorInteiro)sub.avaliar();
-		Assert.assertEquals(v5, resSub);
-		sub.aceitar(v);
+		Assert.assertEquals(vi(5), resSub);
+		sub.aceitar(prettyPrinter);
 		System.out.println("");
 	}
 	
 	@Test
-	public void TestePrettyPrinterMult() {
-		ValorInteiro v5 = vi(5);
-		ValorInteiro v10 = vi(10);
-		
-		PPVisitor v = new PPVisitor();
+	public void testPrettyPrinterMult() {
 		
 		/*PPV para multiplicação*/
-		ExpressaoMult mult = mult(v10, v5);
+		ExpressaoMult mult = mult(vi(10), vi(5));
 		ValorInteiro resMult = (ValorInteiro)mult.avaliar();
 		Assert.assertEquals(vi(50), resMult);
-		mult.aceitar(v);
+		mult.aceitar(prettyPrinter);
 		System.out.println("");
 	}
 	
 	@Test
-	public void TestePrettyPrinterDiv() {
-		ValorInteiro v5 = vi(5);
-		ValorInteiro v10 = vi(10);
-		
-		PPVisitor v = new PPVisitor();
+	public void testPrettyPrinterDiv() {
 		
 		/*PPV para divisão*/
-		ExpressaoDiv div = div(v10, v5);
+		ExpressaoDiv div = div(vi(10), vi(5));
 		ValorInteiro resDiv = (ValorInteiro)div.avaliar();
 		Assert.assertEquals(vi(2), resDiv);
-		div.aceitar(v);
+		div.aceitar(prettyPrinter);
+		System.out.println("");
+	}
+	
+	@Test
+	public void testPrettyPrinterAnd() {
+		
+		/*PPV para operação and*/
+		ExpressaoAnd and = and(vb(true), vb(false));
+		ValorBooleano resAnd = (ValorBooleano) and.avaliar();
+		Assert.assertEquals(vb(false), resAnd);
+		and.aceitar(prettyPrinter);
+		System.out.println("");
+	}
+	
+	@Test
+	public void testPrettyPrinterComplexoInteiro() {
+		ExpressaoSoma soma = soma(vi(8), vi(5));
+		ExpressaoSub sub = sub(soma, vi(7));
+		ExpressaoMult mult = mult(sub, vi(6));
+		ExpressaoDiv div = div(mult, vi(3));
+		ValorInteiro res = (ValorInteiro)div.avaliar();
+		Assert.assertEquals(vi(12), res);
+		div.aceitar(prettyPrinter);
 		System.out.println("");
 	}
 }

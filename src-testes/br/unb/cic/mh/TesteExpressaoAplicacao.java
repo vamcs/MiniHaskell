@@ -9,7 +9,7 @@ import org.junit.Assert;
 public class TesteExpressaoAplicacao extends TesteUtil {
 
 	@Test
-	public void testeFuncaoIncrementa() {
+	public void testFuncaoIncrementa() {
 		DeclFuncao inc = (new DeclFuncao()).nome("inc")
 				.argumento(new ArgumentoFormal("x", Tipo.INTEIRO))
 				.corpo(soma(ref("x"), vi(1)));

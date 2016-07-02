@@ -38,10 +38,10 @@ public class PPVisitor extends Adaptador {
 	@Override
 	public void visitar(ValorBooleano exp) {
 		if(exp.getValor()) {
-			System.out.println("True");
+			System.out.print("True");
 		}
 		else {
-			System.out.println("False");
+			System.out.print("False");
 		}
 	}
 

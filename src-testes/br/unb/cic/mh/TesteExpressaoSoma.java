@@ -31,5 +31,19 @@ public class TesteExpressaoSoma extends TesteUtil {
 		
 		Assert.assertEquals(vi(35), res);
 	}
+	
+	/*
+	@Test
+	public void testSomaErro() {
+		ValorBooleano vTrue = new ValorBooleano(true);
+		ValorInteiro v5 = vi(5);
+		
+		ExpressaoSoma soma = soma(v5, vTrue);
+		
+		ValorInteiro res = (ValorInteiro)soma.avaliar();
+		
+		Assert.assertEquals(vi(5), res);
+		
+	}*/
 
 }
