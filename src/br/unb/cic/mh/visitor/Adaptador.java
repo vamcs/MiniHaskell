@@ -4,8 +4,8 @@ import br.unb.cic.mh.ExpressaoAplicacao;
 import br.unb.cic.mh.ExpressaoBinaria;
 import br.unb.cic.mh.ExpressaoIfThenElse;
 import br.unb.cic.mh.ExpressaoLet;
-import br.unb.cic.mh.ExpressaoNot;
 import br.unb.cic.mh.ExpressaoRefId;
+import br.unb.cic.mh.ExpressaoUnaria;
 import br.unb.cic.mh.ValorBooleano;
 import br.unb.cic.mh.ValorInteiro;
 
@@ -41,7 +41,7 @@ public class Adaptador implements Visitor {
 	}
 
 	@Override
-	public void visitar(ExpressaoNot exp) {
+	public void visitar(ExpressaoUnaria exp) {
 		
 	}
 

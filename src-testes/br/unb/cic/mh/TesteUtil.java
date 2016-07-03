@@ -30,6 +30,10 @@ public abstract class TesteUtil {
 		return new ExpressaoOr(exp1, exp2);
 	}
 	
+//	public ExpressaoIgualdade equal(Expressao exp1, Expressao exp2) {
+//		return new ExpressaoIgualdade(exp1, exp2);
+//	}
+	
 	public ExpressaoNot not(Expressao exp) {
 		return new ExpressaoNot(exp);
 	}

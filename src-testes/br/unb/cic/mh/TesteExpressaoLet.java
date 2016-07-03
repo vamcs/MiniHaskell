@@ -5,16 +5,19 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TesteExpressaoLet {
+public class TesteExpressaoLet extends TesteUtil {
 
 	@Test
 	public void testeExpressaoLetSimples() {
-		// let x = 10
+		// let x = 5
 		// in x + x
 		ExpressaoLet let1 = new ExpressaoLet("x", new ValorInteiro(5),
 				new ExpressaoSoma(new ExpressaoRefId("x"), new ExpressaoRefId("x")));
 
 		assertEquals(new ValorInteiro(10), let1.avaliar());
+		
+		let1.aceitar(prettyPrinter);
+		System.out.println("");
 	}
 
 	@Test
@@ -28,18 +31,22 @@ public class TesteExpressaoLet {
 		
 		
 		assertEquals(vi(15), letExterno.avaliar());
+		
+		letExterno.aceitar(prettyPrinter);
+		System.out.println("");
 	}
 	
-	public ExpressaoSoma soma(Expressao exp1, Expressao exp2) {
-		return new ExpressaoSoma(exp1, exp2);
+	@Test
+	public void testeExpressaoLetAninhadaEspecial() {
+		//let x = 10 in let x = 5 in x + x
+		ExpressaoLet letInterno = new ExpressaoLet("x", vi(6), soma(ref("x"), ref("x")));  
+	
+		ExpressaoLet letExterno = new ExpressaoLet("x", vi(10), letInterno);
+		
+		assertEquals(vi(12), letExterno.avaliar());
+		
+		letExterno.aceitar(prettyPrinter);
+		System.out.println("");
 	}
 	
-	public ValorInteiro vi(Integer v) {
-		return new ValorInteiro(v);
-	}
-	
-	public ExpressaoRefId ref(String id) {
-		return new ExpressaoRefId(id);
-	}
-
 }

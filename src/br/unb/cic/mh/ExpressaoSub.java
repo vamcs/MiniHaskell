@@ -26,7 +26,7 @@ public class ExpressaoSub extends ExpressaoBinariaInteira {
 //	}
 
 	@Override
-	public String getOperando() {
+	public String getOperador() {
 		return "-";
 	}
 

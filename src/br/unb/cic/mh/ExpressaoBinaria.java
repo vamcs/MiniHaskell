@@ -20,7 +20,7 @@ public abstract class ExpressaoBinaria implements Expressao{
 		return sub2;
 	}
 
-	public abstract String getOperando();
+	public abstract String getOperador();
 	
 	/*A função aceitar vale para todas as subclasses.*/
 	public void aceitar(Visitor v) {

@@ -15,7 +15,7 @@ public class ExpressaoOr extends ExpressaoBinariaBooleana {
 	}
 
 	@Override
-	public String getOperando() {
+	public String getOperador() {
 		return "||";
 	}
 

@@ -16,6 +16,10 @@ public class ExpressaoRefId implements Expressao {
 		this.id = id;
 	}
 
+	public String getId() {
+		return id;
+	}
+
 	@Override
 	public Tipo tipo() {
 		Expressao exp = AmbienteExecucao.instance().obterExpressao(id);
@@ -31,7 +35,7 @@ public class ExpressaoRefId implements Expressao {
 		if(exp != null) {
 			return exp.checarTipo();
 		}
-		throw new RuntimeException("Variaval: " + id + " nao declarada");
+		throw new RuntimeException("Variavel: " + id + " nao declarada");
 	}
 
 	@Override
@@ -40,7 +44,7 @@ public class ExpressaoRefId implements Expressao {
 		if(exp != null) {
 			return exp.avaliar();
 		}
-		throw new RuntimeException("Variaval: " + id + " nao declarada");
+		throw new RuntimeException("Variavel: " + id + " nao declarada");
 	}
 	
 	@Override

@@ -1,5 +1,7 @@
 package br.unb.cic.mh;
 
+import br.unb.cic.mh.visitor.Visitor;
+
 public abstract class ExpressaoUnaria implements Expressao {
 
 	protected Expressao sub;
@@ -25,10 +27,9 @@ public abstract class ExpressaoUnaria implements Expressao {
 		return sub;
 	}
 
-//	@Override
-//	public void aceitar(Visitor v) {
-//		// TODO Auto-generated method stub
-//
-//	}
+	@Override
+	public void aceitar(Visitor v) {
+		v.visitar(this);
+	}
 
 }

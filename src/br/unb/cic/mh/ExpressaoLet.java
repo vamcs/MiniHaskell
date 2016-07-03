@@ -29,6 +29,18 @@ public class ExpressaoLet implements Expressao {
 		this.corpo = corpo;
 	}
 
+	public String getId() {
+		return id;
+	}
+
+	public Expressao getExp() {
+		return exp;
+	}
+
+	public Expressao getCorpo() {
+		return corpo;
+	}
+	
 	@Override
 	public Tipo tipo() {
 		if(checarTipo()) {

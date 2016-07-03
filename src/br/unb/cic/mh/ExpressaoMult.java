@@ -15,7 +15,7 @@ public class ExpressaoMult extends ExpressaoBinariaInteira {
 	}
 
 	@Override
-	public String getOperando() {
+	public String getOperador() {
 		return "*";
 	}
 
