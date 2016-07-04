@@ -37,6 +37,22 @@ public class TesteExpressaoLet extends TesteUtil {
 	}
 	
 	@Test
+	public void testeExpressaoLetAninhadaExp() {
+		//let x = 5 in x + y
+		ExpressaoLet letInterno = new ExpressaoLet("x", vi(5), 
+				soma(ref("x"), ref("y")));  
+	
+		//let y = 10 in let x = 5 in x + y
+		ExpressaoLet letExterno = new ExpressaoLet("y", soma(ref("x"), vi(1)), letInterno);
+		
+		
+		assertEquals(vi(11), letExterno.avaliar());
+		
+		letExterno.aceitar(prettyPrinter);
+		System.out.println("");
+	}
+	
+	@Test
 	public void testeExpressaoLetAninhadaEspecial() {
 		//let x = 10 in let x = 5 in x + x
 		ExpressaoLet letInterno = new ExpressaoLet("x", vi(6), soma(ref("x"), ref("x")));  
