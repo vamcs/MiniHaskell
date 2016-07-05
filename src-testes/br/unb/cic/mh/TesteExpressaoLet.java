@@ -5,6 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import br.unb.cic.mh.expressao.ExpressaoLet;
+import br.unb.cic.mh.expressao.ExpressaoRefId;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoSoma;
+import br.unb.cic.mh.valor.ValorInteiro;
+
 public class TesteExpressaoLet extends TesteUtil {
 
 	@Test

@@ -3,6 +3,8 @@ package br.unb.cic.mh;
 import java.util.HashMap;
 import java.util.Stack;
 
+import br.unb.cic.mh.expressao.Expressao;
+
 /**
  * Classe (singleton) que representa um 
  * ambiente de execucao.

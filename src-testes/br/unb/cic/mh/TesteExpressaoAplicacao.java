@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+
+import br.unb.cic.mh.expressao.ExpressaoAplicacao;
+import br.unb.cic.mh.expressao.ExpressaoIfThenElse;
+import br.unb.cic.mh.expressao.ExpressaoRefId;
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoIgualdade;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoMult;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoSub;
+import br.unb.cic.mh.valor.ValorInteiro;
+
 import org.junit.Assert;
 
 public class TesteExpressaoAplicacao extends TesteUtil {

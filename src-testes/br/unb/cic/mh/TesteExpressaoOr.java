@@ -3,6 +3,9 @@ package br.unb.cic.mh;
 import org.junit.Assert;
 import org.junit.Test;
 
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoOr;
+import br.unb.cic.mh.valor.ValorBooleano;
+
 public class TesteExpressaoOr extends TesteUtil {
 	
 	@Test

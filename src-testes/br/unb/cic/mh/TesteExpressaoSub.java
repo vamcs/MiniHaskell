@@ -3,6 +3,9 @@ package br.unb.cic.mh;
 import org.junit.Assert;
 import org.junit.Test;
 
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoSub;
+import br.unb.cic.mh.valor.ValorInteiro;
+
 /*Utiliza os métodos vi() e soma() de TesteUtil*/
 public class TesteExpressaoSub extends TesteUtil {
 

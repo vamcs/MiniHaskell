@@ -3,6 +3,13 @@ package br.unb.cic.mh;
 import org.junit.Assert;
 import org.junit.Test;
 
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoMaiorIgual;
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoMaiorQue;
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoMenorIgual;
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoMenorQue;
+import br.unb.cic.mh.valor.ValorBooleano;
+import br.unb.cic.mh.valor.ValorInteiro;
+
 public class TesteExpressoesRelacionais extends TesteUtil {
 	
 	@Test

@@ -3,6 +3,16 @@ package br.unb.cic.mh;
 import org.junit.Assert;
 import org.junit.Test;
 
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoAnd;
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoOr;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoDiv;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoMult;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoSoma;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoSub;
+import br.unb.cic.mh.expressao.unaria.ExpressaoNot;
+import br.unb.cic.mh.valor.ValorBooleano;
+import br.unb.cic.mh.valor.ValorInteiro;
+
 /*Utiliza funções e variáveis definidas em TesteUtil*/
 public class TesteVisitor extends TesteUtil {
 

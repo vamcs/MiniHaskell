@@ -1,8 +1,8 @@
 package br.unb.cic.mh.visitor;
 
-import br.unb.cic.mh.Expressao;
-import br.unb.cic.mh.ExpressaoIfThenElse;
-import br.unb.cic.mh.ValorBooleano;
+import br.unb.cic.mh.expressao.Expressao;
+import br.unb.cic.mh.expressao.ExpressaoIfThenElse;
+import br.unb.cic.mh.valor.ValorBooleano;
 
 public class Refactoring extends  Adaptador {
 

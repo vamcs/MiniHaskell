@@ -1,6 +1,14 @@
 package br.unb.cic.mh;
 
 import org.junit.Test;
+
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoAnd;
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoIgualdade;
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoOr;
+import br.unb.cic.mh.expressao.unaria.ExpressaoNot;
+import br.unb.cic.mh.valor.ValorBooleano;
+import br.unb.cic.mh.valor.ValorInteiro;
+
 import org.junit.Assert;
 
 public class TesteExpressaoIgualdade extends TesteUtil {

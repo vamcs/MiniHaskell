@@ -2,6 +2,14 @@ package br.unb.cic.mh;
 
 import org.junit.Assert;
 
+import br.unb.cic.mh.expressao.ExpressaoAplicacao;
+import br.unb.cic.mh.expressao.ExpressaoIfThenElse;
+import br.unb.cic.mh.expressao.ExpressaoRefId;
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoIgualdade;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoMult;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoSub;
+import br.unb.cic.mh.valor.ValorInteiro;
+
 public class main {
 
 	public static void main(String[] args) {

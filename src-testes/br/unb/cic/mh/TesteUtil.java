@@ -1,5 +1,16 @@
 package br.unb.cic.mh;
 
+import br.unb.cic.mh.expressao.Expressao;
+import br.unb.cic.mh.expressao.ExpressaoRefId;
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoAnd;
+import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoOr;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoDiv;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoMult;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoSoma;
+import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoSub;
+import br.unb.cic.mh.expressao.unaria.ExpressaoNot;
+import br.unb.cic.mh.valor.ValorBooleano;
+import br.unb.cic.mh.valor.ValorInteiro;
 import br.unb.cic.mh.visitor.PPVisitor;
 
 public abstract class TesteUtil {
