@@ -6,6 +6,7 @@ import br.unb.cic.mh.expressao.ExpressaoLet;
 import br.unb.cic.mh.expressao.ExpressaoRefId;
 import br.unb.cic.mh.expressao.binaria.ExpressaoBinaria;
 import br.unb.cic.mh.expressao.unaria.ExpressaoUnaria;
+import br.unb.cic.mh.valor.Lista;
 import br.unb.cic.mh.valor.ValorBooleano;
 import br.unb.cic.mh.valor.ValorInteiro;
 
@@ -18,4 +19,5 @@ public interface Visitor {
 	public void visitar(ExpressaoAplicacao exp);
 	public void visitar(ValorInteiro exp);
 	public void visitar(ValorBooleano exp);
+	public void visitar(Lista lista);
 }

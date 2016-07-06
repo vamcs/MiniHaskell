@@ -6,6 +6,7 @@ import br.unb.cic.mh.expressao.ExpressaoLet;
 import br.unb.cic.mh.expressao.ExpressaoRefId;
 import br.unb.cic.mh.expressao.binaria.ExpressaoBinaria;
 import br.unb.cic.mh.expressao.unaria.ExpressaoUnaria;
+import br.unb.cic.mh.valor.Lista;
 import br.unb.cic.mh.valor.ValorBooleano;
 import br.unb.cic.mh.valor.ValorInteiro;
 
@@ -42,6 +43,12 @@ public class Adaptador implements Visitor {
 
 	@Override
 	public void visitar(ExpressaoUnaria exp) {
+		
+	}
+
+	@Override
+	public void visitar(Lista lista) {
+		// TODO Auto-generated method stub
 		
 	}
 

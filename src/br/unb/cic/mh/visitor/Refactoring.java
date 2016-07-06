@@ -6,7 +6,7 @@ import br.unb.cic.mh.valor.ValorBooleano;
 
 public class Refactoring extends  Adaptador {
 
-	public Expressao res; 
+	private Expressao res; 
 	
 	@Override
 	public void visitar(ExpressaoIfThenElse exp) {
