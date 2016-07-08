@@ -9,6 +9,7 @@ import br.unb.cic.mh.expressao.binaria.ExpressaoBinaria;
 import br.unb.cic.mh.expressao.unaria.ExpressaoUnaria;
 import br.unb.cic.mh.valor.Lista;
 import br.unb.cic.mh.valor.ListaNaoVazia;
+import br.unb.cic.mh.valor.ListaVazia;
 import br.unb.cic.mh.valor.Valor;
 import br.unb.cic.mh.valor.ValorBooleano;
 import br.unb.cic.mh.valor.ValorInteiro;
@@ -104,11 +105,23 @@ public class PPVisitor extends Adaptador {
 			System.out.print("False");
 		}
 	}
-
-	public void visitar(ListaNaoVazia<?> lista) {
-		System.out.print("[");
-		lista.avaliar().aceitar(this);
-		System.out.print(", ");
-		lista = (ListaNaoVazia<?>)lista.getProx();
+	
+	@Override
+	public void visitar(Lista lista) {
+		
+		if (lista.getValor() == null) {
+			System.out.println("[]");
+		}
+		else {
+			System.out.print("[");
+			do {
+				lista.avaliar().aceitar(this);
+				lista = lista.getProx();
+				if (lista.getValor() != null) {
+					System.out.print(", ");
+				}
+			} while (lista.getValor() != null);
+			System.out.println("]");
+		}
 	}
 }

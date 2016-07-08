@@ -1,6 +1,6 @@
 package br.unb.cic.mh.valor;
 
-public class ListaVazia<T extends Valor> extends Lista {
+public class ListaVazia extends Lista {
 	
 	public ListaVazia() {
 		super(null);

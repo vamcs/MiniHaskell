@@ -15,16 +15,39 @@ public abstract class Lista implements Valor {
 		
 	}
 
-	public static void insereLista(Lista novo, ListaNaoVazia<?> local) {
+	public Valor getValor() {
+		return valor;
+	}
+
+	public Lista getProx() {
+		return prox;
+	}
+
+	public static void insereLista(ListaNaoVazia<?> local, Lista novo) {
 
 		if (novo.getClass() != ListaVazia.class) {
 			novo.prox = local.prox;
-		} else if (local.prox != null) {
-			throw new RuntimeException("Proibido inserir lista vazia nesta posicao.");
+			local.prox = novo;
+		} else {
+			throw new RuntimeException("Proibido inserir lista vazia.");
 		}
-
-		local.prox = novo;
 	}
+	
+//	public static int tamanhoLista(Lista lista) {
+//		
+//		if (lista.getValor() != null) {
+//			//Lista com 1 ou mais elementos.
+//			while (lista.get) {
+//				
+//			}
+//		}
+//		else {
+//			//Lista vazia.
+//			return 0;
+//		}
+//		
+//		return tamanho;
+//	}
 	
 	@Override
 	public Tipo tipo() {
