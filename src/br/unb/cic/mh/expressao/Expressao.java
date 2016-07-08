@@ -8,5 +8,6 @@ public interface Expressao {
 	public Tipo tipo(); 
 	public boolean checarTipo();
 	public Valor avaliar();
+	//public String getOperator();
 	public void aceitar(Visitor v);
 }

@@ -1,5 +1,6 @@
 package br.unb.cic.mh.visitor;
 
+import br.unb.cic.mh.expressao.Expressao;
 import br.unb.cic.mh.expressao.ExpressaoAplicacao;
 import br.unb.cic.mh.expressao.ExpressaoIfThenElse;
 import br.unb.cic.mh.expressao.ExpressaoLet;
@@ -7,12 +8,14 @@ import br.unb.cic.mh.expressao.ExpressaoRefId;
 import br.unb.cic.mh.expressao.binaria.ExpressaoBinaria;
 import br.unb.cic.mh.expressao.unaria.ExpressaoUnaria;
 import br.unb.cic.mh.valor.Lista;
+import br.unb.cic.mh.valor.Valor;
 import br.unb.cic.mh.valor.ValorBooleano;
 import br.unb.cic.mh.valor.ValorInteiro;
 
 public class Adaptador implements Visitor {
 
-	@Override
+
+	
 	public void visitar(ExpressaoIfThenElse exp) {
 	}
 
@@ -51,5 +54,12 @@ public class Adaptador implements Visitor {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void visitar(Valor exp) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 
 }

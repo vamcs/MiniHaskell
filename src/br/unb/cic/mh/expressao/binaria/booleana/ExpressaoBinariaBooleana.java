@@ -5,14 +5,14 @@ import br.unb.cic.mh.expressao.Expressao;
 import br.unb.cic.mh.expressao.binaria.ExpressaoBinaria;
 
 /**
-*	Esta classe foi criada para evitar a repetição dos métodos tipo() e checarTipo()
-*	para todas as expressões binárias booleanas.
+*	Esta classe foi criada para evitar a repetiï¿½ï¿½o dos mï¿½todos tipo() e checarTipo()
+*	para todas as expressï¿½es binï¿½rias booleanas.
 *
 *	@author vamcs
 */
 public abstract class ExpressaoBinariaBooleana extends ExpressaoBinaria {
 	
-	/*Utilização do construtor de ExpressaoBinaria.*/
+	/*Utilizaï¿½ï¿½o do construtor de ExpressaoBinaria.*/
 	public ExpressaoBinariaBooleana(Expressao s1, Expressao s2) {
 		super(s1, s2);
 	}
@@ -27,7 +27,9 @@ public abstract class ExpressaoBinariaBooleana extends ExpressaoBinaria {
 		}
 		return Tipo.ERRO;
 	}
-
+//	public String getOperator(){
+//		return ("==");
+//	} 
 	@Override
 	public boolean checarTipo() {
 		return tipo().equals(Tipo.BOOLEANO);

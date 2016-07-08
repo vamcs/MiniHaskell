@@ -3,10 +3,10 @@ package br.unb.cic.mh.valor;
 import br.unb.cic.mh.Tipo;
 import br.unb.cic.mh.visitor.Visitor;
 
-//TODO: organizar classes e criar cabeça da lista
+//TODO: organizar classes e criar cabeï¿½a da lista
 public abstract class Lista implements Valor {
 
-	//protected Valor valor;
+//	protected Valor valor;
 	protected Lista prox;
 	
 //	public Lista(Valor valor) {

@@ -3,7 +3,6 @@ package br.unb.cic.mh.valor;
 public class ListaNaoVazia<T extends Valor> extends Lista {
 
 	private T valor;
-	
 	public ListaNaoVazia(T valor, Lista prox) {
 		this.valor = valor;
 		this.prox = prox;
@@ -15,13 +14,13 @@ public class ListaNaoVazia<T extends Valor> extends Lista {
 		return novo;
 	}
 	
-	//TODO: criar cabeça da lista.
+	//TODO: criar cabeï¿½a da lista.
 	public void insereLista(Lista lista, ListaNaoVazia<T> local) {
 		
 		if (lista.getClass() != ListaVazia.class) {
 			lista.prox = local.prox;
 		} else if (local.prox != null) {
-			throw new RuntimeException("Proibido inserir lista vazia nesta posição.");
+			throw new RuntimeException("Proibido inserir lista vazia nesta posiï¿½ï¿½o.");
 		}
 
 		local.prox = lista;

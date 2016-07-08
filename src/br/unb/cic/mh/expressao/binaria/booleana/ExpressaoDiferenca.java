@@ -18,6 +18,7 @@ public class ExpressaoDiferenca<T extends ValorConcreto<?>> extends ExpressaoBin
 		
 		return new ValorBooleano(v1.getValor() != v2.getValor());
 	}
+	
 
 	@Override
 	public String getOperador() {

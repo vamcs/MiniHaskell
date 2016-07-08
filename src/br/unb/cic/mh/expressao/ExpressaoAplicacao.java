@@ -11,7 +11,7 @@ import br.unb.cic.mh.valor.Valor;
 import br.unb.cic.mh.visitor.Visitor;
 
 /**
- * Classe que implementa a execução de uma função declarada no ambiente de execução.
+ * Classe que implementa a execuï¿½ï¿½o de uma funï¿½ï¿½o declarada no ambiente de execuï¿½ï¿½o.
  * @author rbonifacio
  *
  */
@@ -29,30 +29,36 @@ public class ExpressaoAplicacao implements Expressao {
 	// ===========================================================
 	
 	/**
-	 * Construtor que executa uma função "nome" declarada.
-	 * @param nome da função a se executar
-	 * @param argumentos : lista com todas expressões a se executar
+	 * Construtor que executa uma funï¿½ï¿½o "nome" declarada.
+	 * @param nome da funï¿½ï¿½o a se executar
+	 * @param argumentos : lista com todas expressï¿½es a se executar
 	 */
 	public ExpressaoAplicacao(String nome, List<Expressao> argumentos) {
 		this.nome = nome;
 		this.parametros = argumentos;
 	}
-	
 	/**
-	 * Construtor padrão. Apenas inicializa uma lista vazia de parâmetros.
+	 * Construtor padrï¿½o. Apenas inicializa uma lista vazia de parï¿½metros.
 	 */
+	public String getnome(){
+		return nome;
+	}
+	
+	public List<Expressao> getparametros(){
+		return parametros;
+	}
 	public ExpressaoAplicacao() {
 		parametros = new ArrayList<Expressao>();
 	}
 	
 	// ===========================================================
-	// Métodos
+	// Mï¿½todos
 	// ===========================================================
 	
 	/**
-	 * Seta o nome da função a ser executada.
+	 * Seta o nome da funï¿½ï¿½o a ser executada.
 	 * @param nome
-	 * @return a própria expressão aplicação
+	 * @return a prï¿½pria expressï¿½o aplicaï¿½ï¿½o
 	 */
 	public ExpressaoAplicacao nome(String nome) {
 		this.nome = nome;
@@ -60,23 +66,23 @@ public class ExpressaoAplicacao implements Expressao {
 	}
 	
 	/**
-	 * Adiciona uma nova expressão a ser executada.
+	 * Adiciona uma nova expressï¿½o a ser executada.
 	 * @param exp
-	 * @return a própria expressão aplicação
+	 * @return a prï¿½pria expressï¿½o aplicaï¿½ï¿½o
 	 */
 	public ExpressaoAplicacao parametro(Expressao exp) {
 		parametros.add(exp);
 		return this;
 	}
 	
-	//Ainda não implementado.
+	//Ainda nï¿½o implementado.
 	@Override
 	public Tipo tipo() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	//Ainda não implementado.
+	//Ainda nï¿½o implementado.
 	@Override
 	public boolean checarTipo() {
 		// TODO Auto-generated method stub
@@ -84,25 +90,25 @@ public class ExpressaoAplicacao implements Expressao {
 	}
 	
 	/**
-	 * Faz a execução da função declarada chamada String <b>nome</b>.
+	 * Faz a execuï¿½ï¿½o da funï¿½ï¿½o declarada chamada String <b>nome</b>.
 	 */
 	@Override
 	public Valor avaliar() {
 		
-		//Busca se a função declarada está no ambiente de execução.
+		//Busca se a funï¿½ï¿½o declarada estï¿½ no ambiente de execuï¿½ï¿½o.
 		DeclFuncao f = AmbienteExecucao.instance().obterDeclaracaoFuncao(nome);
 		
-		//Caso não tenha sido declara, lança exceção.
+		//Caso nï¿½o tenha sido declara, lanï¿½a exceï¿½ï¿½o.
 		if(f == null) {
 			throw new RuntimeException("Funcao " + nome + " nao declarada");
 		}
 		
-		//Verifica se o número de parâmetros passado à função é o mesmo que ela pede.
+		//Verifica se o nï¿½mero de parï¿½metros passado ï¿½ funï¿½ï¿½o ï¿½ o mesmo que ela pede.
 		if (parametros.size() < f.getArgumentos().size()) {
-			throw new RuntimeException("Número de parâmetros insuficientes.");
+			throw new RuntimeException("Nï¿½mero de parï¿½metros insuficientes.");
 		}
 		else if(parametros.size() > f.getArgumentos().size()) {
-			throw new RuntimeException("Muitos parâmetros na chamada da função.");
+			throw new RuntimeException("Muitos parï¿½metros na chamada da funï¿½ï¿½o.");
 		}
 			
 		//Faz as associacoes entre argumentos formais 
@@ -122,14 +128,14 @@ public class ExpressaoAplicacao implements Expressao {
 	}
 
 	/**
-	 * Associar no contexto de execução os argumentos 
-	 * formais da funcao "f" aos parâmetros 
-	 * passados na aplicação de função.
+	 * Associar no contexto de execuï¿½ï¿½o os argumentos 
+	 * formais da funcao "f" aos parï¿½metros 
+	 * passados na aplicaï¿½ï¿½o de funï¿½ï¿½o.
 	 * <br><br>
-	 * <b>EDIT</b>: Um escopo só pode conter valores concretos,
-	 * portanto só é possível definir o ambiente após avaliar todos os parâmetros
-	 * passados à função. Dessa forma, um novo escopo vazio é definido e as consequentes associações
-	 * só são feitas após essas avaliações.
+	 * <b>EDIT</b>: Um escopo sï¿½ pode conter valores concretos,
+	 * portanto sï¿½ ï¿½ possï¿½vel definir o ambiente apï¿½s avaliar todos os parï¿½metros
+	 * passados ï¿½ funï¿½ï¿½o. Dessa forma, um novo escopo vazio ï¿½ definido e as consequentes associaï¿½ï¿½es
+	 * sï¿½ sï¿½o feitas apï¿½s essas avaliaï¿½ï¿½es.
 	 * 
 	 * @author rbonifacio
 	 * 
@@ -138,19 +144,19 @@ public class ExpressaoAplicacao implements Expressao {
 		List<ArgumentoFormal> argumentosFormais = f.getArgumentos();
 		List<Expressao> exp = new ArrayList<Expressao>();
 		
-		//Executa os parâmetros recebidos pela função e os salva em exp.
+		//Executa os parï¿½metros recebidos pela funï¿½ï¿½o e os salva em exp.
 		for(int i = 0; i < argumentosFormais.size(); i++) {
 			exp.add(parametros.get(i).avaliar());
 		}
 		
 		//Inicializa um novo escopo vazio.
-		//Um novo escopo só é inicializado após avaliar todas expressões recebidas
-		//como parâmetro. Caso contrário, Expressões RefId perderiam o valor corrente do escopo
+		//Um novo escopo sï¿½ ï¿½ inicializado apï¿½s avaliar todas expressï¿½es recebidas
+		//como parï¿½metro. Caso contrï¿½rio, Expressï¿½es RefId perderiam o valor corrente do escopo
 		//antes de serem avaliadas. 
 		//Lembrete: deve-se sempre guardar valores inteiros ou booleano no escopo.
 		AmbienteExecucao.instance().definirEscopo();
 		
-		//Associa os argumentos às expressões (Valores Concretos) no novo escopo vazio.
+		//Associa os argumentos ï¿½s expressï¿½es (Valores Concretos) no novo escopo vazio.
 		for(int i = 0; i < argumentosFormais.size(); i++) {
 			AmbienteExecucao.instance().associarExpressao(argumentosFormais.get(i).getId(), exp.get(i));
 		}	

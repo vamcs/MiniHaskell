@@ -34,7 +34,15 @@ public class ExpressaoIfThenElse implements Expressao{
 			return clausulaElse.avaliar();
 		}
 	}
-
+	public Expressao getcondicao(){
+		return condicao;
+	}
+	public Expressao getclausulaThen(){
+		return clausulaThen;
+	}
+	public Expressao clausulaElse(){
+		return clausulaElse;
+	}
 	@Override
 	public Tipo tipo() {
 		Tipo cond = condicao.tipo();
