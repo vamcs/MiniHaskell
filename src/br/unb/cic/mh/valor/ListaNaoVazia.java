@@ -2,9 +2,8 @@ package br.unb.cic.mh.valor;
 
 public class ListaNaoVazia<T extends Valor> extends Lista {
 
-	private T valor;
-	public ListaNaoVazia(T valor, Lista prox) {
-		this.valor = valor;
+	public ListaNaoVazia(Valor valor, Lista prox) {
+		super(valor);
 		this.prox = prox;
 	}
 	
@@ -12,18 +11,6 @@ public class ListaNaoVazia<T extends Valor> extends Lista {
 		ListaNaoVazia<T> novo = new ListaNaoVazia<T>(valor, null);
 		novo.prox = this;
 		return novo;
-	}
-	
-	//TODO: criar cabe�a da lista.
-	public void insereLista(Lista lista, ListaNaoVazia<T> local) {
-		
-		if (lista.getClass() != ListaVazia.class) {
-			lista.prox = local.prox;
-		} else if (local.prox != null) {
-			throw new RuntimeException("Proibido inserir lista vazia nesta posi��o.");
-		}
-
-		local.prox = lista;
 	}
 
 	//TODO: consertar o retorno de getProx().
