@@ -38,7 +38,7 @@ public class ExpressaoAplicacao implements Expressao {
 		this.parametros = argumentos;
 	}
 	/**
-	 * Construtor padr�o. Apenas inicializa uma lista vazia de par�metros.
+	 * Construtor padrao. Apenas inicializa uma lista vazia de parametros.
 	 */
 	public String getnome(){
 		return nome;
@@ -52,13 +52,13 @@ public class ExpressaoAplicacao implements Expressao {
 	}
 	
 	// ===========================================================
-	// M�todos
+	// Metodos
 	// ===========================================================
 	
 	/**
-	 * Seta o nome da fun��o a ser executada.
+	 * Seta o nome da funcao a ser executada.
 	 * @param nome
-	 * @return a pr�pria express�o aplica��o
+	 * @return a propria expressao aplicacao
 	 */
 	public ExpressaoAplicacao nome(String nome) {
 		this.nome = nome;
@@ -68,7 +68,7 @@ public class ExpressaoAplicacao implements Expressao {
 	/**
 	 * Adiciona uma nova express�o a ser executada.
 	 * @param exp
-	 * @return a pr�pria express�o aplica��o
+	 * @return a propria expressao aplicacao
 	 */
 	public ExpressaoAplicacao parametro(Expressao exp) {
 		parametros.add(exp);
@@ -86,25 +86,25 @@ public class ExpressaoAplicacao implements Expressao {
 	}
 	
 	/**
-	 * Faz a execu��o da fun��o declarada chamada String <b>nome</b>.
+	 * Faz a execucao da funcao declarada chamada String <b>nome</b>.
 	 */
 	@Override
 	public Valor avaliar() {
 		
-		//Busca se a fun��o declarada est� no ambiente de execu��o.
+		//Busca se a funcao declarada esta no ambiente de execucao.
 		DeclFuncao f = AmbienteExecucao.instance().obterDeclaracaoFuncao(nome);
 		
-		//Caso n�o tenha sido declara, lan�a exce��o.
+		//Caso nao tenha sido declara, lanca excecao.
 		if(f == null) {
 			throw new RuntimeException("Funcao " + nome + " nao declarada");
 		}
 		
-		//Verifica se o n�mero de par�metros passado � fun��o � o mesmo que ela pede.
+		//Verifica se o numero de parametros passado eh funcao eh o mesmo que ela pede.
 		if (parametros.size() < f.getArgumentos().size()) {
-			throw new RuntimeException("N�mero de par�metros insuficientes.");
+			throw new RuntimeException("Numero de parametros insuficientes.");
 		}
 		else if(parametros.size() > f.getArgumentos().size()) {
-			throw new RuntimeException("Muitos par�metros na chamada da fun��o.");
+			throw new RuntimeException("Muitos parametros na chamada da funcao.");
 		}
 			
 		//Faz as associacoes entre argumentos formais 
@@ -124,14 +124,14 @@ public class ExpressaoAplicacao implements Expressao {
 	}
 
 	/**
-	 * Associar no contexto de execu��o os argumentos 
-	 * formais da funcao "f" aos par�metros 
-	 * passados na aplica��o de fun��o.
+	 * Associar no contexto de execucao os argumentos 
+	 * formais da funcao "f" aos parametros 
+	 * passados na aplicacao de funcao.
 	 * <br><br>
-	 * <b>EDIT</b>: Um escopo s� pode conter valores concretos,
-	 * portanto s� � poss�vel definir o ambiente ap�s avaliar todos os par�metros
-	 * passados � fun��o. Dessa forma, um novo escopo vazio � definido e as consequentes associa��es
-	 * s� s�o feitas ap�s essas avalia��es.
+	 * <b>EDIT</b>: Um escopo se pode conter valores concretos,
+	 * portanto se eh possivel definir o ambiente apos avaliar todos os parametros
+	 * passados eh funcao. Dessa forma, um novo escopo vazio eh definido e as consequentes associa��es
+	 * se sao feitas apos essas avaliacoes.
 	 * 
 	 * @author rbonifacio
 	 * 
@@ -146,13 +146,13 @@ public class ExpressaoAplicacao implements Expressao {
 		}
 		
 		//Inicializa um novo escopo vazio.
-		//Um novo escopo s� � inicializado ap�s avaliar todas express�es recebidas
-		//como par�metro. Caso contr�rio, Express�es RefId perderiam o valor corrente do escopo
+		//Um novo escopo se eh inicializado apos avaliar todas express�es recebidas
+		//como parametro. Caso contrario, Express�es RefId perderiam o valor corrente do escopo
 		//antes de serem avaliadas. 
 		//Lembrete: deve-se sempre guardar valores inteiros ou booleano no escopo.
 		AmbienteExecucao.instance().definirEscopo();
 		
-		//Associa os argumentos �s express�es (Valores Concretos) no novo escopo vazio.
+		//Associa os argumentos as expressoes (Valores Concretos) no novo escopo vazio.
 		for(int i = 0; i < argumentosFormais.size(); i++) {
 			AmbienteExecucao.instance().associarExpressao(argumentosFormais.get(i).getId(), exp.get(i));
 		}	

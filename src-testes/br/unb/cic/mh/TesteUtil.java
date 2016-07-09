@@ -1,6 +1,7 @@
 package br.unb.cic.mh;
 
 import br.unb.cic.mh.expressao.Expressao;
+import br.unb.cic.mh.expressao.ExpressaoAplicacao;
 import br.unb.cic.mh.expressao.ExpressaoRefId;
 import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoAnd;
 import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoOr;
@@ -59,5 +60,8 @@ public abstract class TesteUtil {
 	
 	public ValorBooleano vb(Boolean valor) {
 		return new ValorBooleano(valor);
+	}
+	public ExpressaoAplicacao ape() {
+		return new ExpressaoAplicacao();
 	}
 }

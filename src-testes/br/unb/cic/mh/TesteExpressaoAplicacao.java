@@ -32,6 +32,7 @@ public class TesteExpressaoAplicacao extends TesteUtil {
 
 		ap = (new ExpressaoAplicacao()).nome("inc").parametro(vi(7));
 		Assert.assertEquals(vi(8), ap.avaliar());
+
 	}
 
 	@Test
@@ -68,7 +69,6 @@ public class TesteExpressaoAplicacao extends TesteUtil {
 		ExpressaoMult mult = mult(n, apInterna);
 		
 		ExpressaoIfThenElse ite = new ExpressaoIfThenElse(igual, v1, mult);
-	
 		DeclFuncao fat = (new DeclFuncao())
 				.nome("fat")
 				.argumento(new ArgumentoFormal("n", Tipo.INTEIRO))
@@ -79,7 +79,7 @@ public class TesteExpressaoAplicacao extends TesteUtil {
 		ExpressaoAplicacao ap = (new ExpressaoAplicacao()).nome("fat").parametro(vi(10));
 
 		Assert.assertEquals(vi(3628800), ap.avaliar());
-		
+		//Exemplo de quando nao eh fornecido a quantidade necessaria de parametros
 		ap = (new ExpressaoAplicacao()).nome("fat");
 		try{
 			ap.avaliar();
