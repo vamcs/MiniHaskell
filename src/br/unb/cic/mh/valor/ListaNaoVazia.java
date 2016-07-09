@@ -1,7 +1,18 @@
 package br.unb.cic.mh.valor;
 
+/**
+ * Lista que contém um valor e uma referência para o próximo nó da lista encadeada.
+ * 
+ * @author vamcs
+ *
+ * @param <T> que pode ser um valor inteiro, booleano ou outra lista.
+ */
 public class ListaNaoVazia<T extends Valor> extends Lista {
 
+	// ===========================================================
+	// Construtores
+	// ===========================================================
+	
 	public ListaNaoVazia(Valor valor) {
 		super(valor);
 		if(valor instanceof Lista){
@@ -15,6 +26,10 @@ public class ListaNaoVazia<T extends Valor> extends Lista {
 		}
 		this.prox = new ListaVazia();
 	}
+
+	// ===========================================================
+	// Métodos
+	// ===========================================================
 	
 	public ListaNaoVazia<T> cons(T valor) {
 		ListaNaoVazia<T> novo = new ListaNaoVazia<T>(valor);

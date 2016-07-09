@@ -12,10 +12,18 @@ import br.unb.cic.mh.valor.ValorInteiro;
 */
 public class ExpressaoSub extends ExpressaoBinariaInteira {
 
+	// ===========================================================
+	// Construtores
+	// ===========================================================
+	
 	public ExpressaoSub(Expressao s1, Expressao s2) {
 		super(s1, s2);
 	}
 
+	// ===========================================================
+	// Métodos
+	// ===========================================================
+	
 	@Override
 	public Valor avaliar() {
 		ValorInteiro v1 = (ValorInteiro)sub1.avaliar();
@@ -24,11 +32,10 @@ public class ExpressaoSub extends ExpressaoBinariaInteira {
 		return new ValorInteiro(v1.getValor() - v2.getValor());
 	}
 
-//	@Override
-//	public void aceitar(Visitor v) {
-//		v.visitar(this);
-//	}
-
+	// ===========================================================
+	// Getters & Setters
+	// ===========================================================
+	
 	@Override
 	public String getOperador() {
 		return "-";

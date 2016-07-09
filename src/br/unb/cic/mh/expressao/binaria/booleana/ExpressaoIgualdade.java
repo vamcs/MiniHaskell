@@ -15,10 +15,18 @@ import br.unb.cic.mh.valor.ValorConcreto;
  */
 public class ExpressaoIgualdade<T extends ValorConcreto<?>> extends ExpressaoBinariaBooleana {
 
+	// ===========================================================
+	// Construtores
+	// ===========================================================
+	
 	public ExpressaoIgualdade(Expressao s1, Expressao s2) {
 		super(s1, s2);
 	}
 
+	// ===========================================================
+	// Métodos
+	// ===========================================================
+	
 	/*
 	 * TODO: implementar a verificação para veja se os tipos dos dois valores a serem
 	 * comparados sejam iguais.
@@ -32,6 +40,10 @@ public class ExpressaoIgualdade<T extends ValorConcreto<?>> extends ExpressaoBin
 		return new ValorBooleano(v1.getValor() == v2.getValor());
 	}
 
+	// ===========================================================
+	// Getters & Setters
+	// ===========================================================
+	
 	@Override
 	public String getOperador() {
 		return "==";

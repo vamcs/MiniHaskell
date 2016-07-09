@@ -63,6 +63,12 @@ public class PPVisitor extends Adaptador {
 		System.out.print(exp.getId());
 	}
 	
+	/**
+	 * Implementa todos os pretty-printers para expressões binárias.
+	 * Utiliza a função getOperador() para imprimir o operador correto.
+	 * 
+	 * @author vamcs
+	 */
 	@Override
 	public void visitar(ExpressaoBinaria exp) {
 		System.out.print("(");

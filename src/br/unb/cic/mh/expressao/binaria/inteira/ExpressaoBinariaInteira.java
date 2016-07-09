@@ -12,11 +12,19 @@ import br.unb.cic.mh.expressao.binaria.ExpressaoBinaria;
 */
 public abstract class ExpressaoBinariaInteira extends ExpressaoBinaria {
 
+	// ===========================================================
+	// Construtores
+	// ===========================================================
+	
 	/*Utilização do construtor de ExpressaoBinaria.*/
 	public ExpressaoBinariaInteira(Expressao s1, Expressao s2) {
 		super(s1, s2);
 	}
 
+	// ===========================================================
+	// Métodos
+	// ===========================================================
+	
 	@Override
 	public Tipo tipo() {
 		Tipo t1 = sub1.tipo();

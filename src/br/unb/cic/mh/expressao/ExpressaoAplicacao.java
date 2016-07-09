@@ -11,7 +11,7 @@ import br.unb.cic.mh.valor.Valor;
 import br.unb.cic.mh.visitor.Visitor;
 
 /**
- * Classe que implementa a execu��o de uma fun��o declarada no ambiente de execu��o.
+ * Classe que implementa a execucao de uma funcao declarada no ambiente de execucao.
  * @author rbonifacio
  *
  */
@@ -29,9 +29,9 @@ public class ExpressaoAplicacao implements Expressao {
 	// ===========================================================
 	
 	/**
-	 * Construtor que executa uma fun��o "nome" declarada.
-	 * @param nome da fun��o a se executar
-	 * @param argumentos : lista com todas express�es a se executar
+	 * Construtor que executa uma funcao "nome" declarada.
+	 * @param nome da funcao a se executar
+	 * @param argumentos : lista com todas expressoes a se executar
 	 */
 	public ExpressaoAplicacao(String nome, List<Expressao> argumentos) {
 		this.nome = nome;
@@ -128,9 +128,9 @@ public class ExpressaoAplicacao implements Expressao {
 	 * formais da funcao "f" aos parametros 
 	 * passados na aplicacao de funcao.
 	 * <br><br>
-	 * <b>EDIT</b>: Um escopo se pode conter valores concretos,
+	 * <b>EDIT @vamcs</b>: Um escopo se pode conter valores concretos,
 	 * portanto se eh possivel definir o ambiente apos avaliar todos os parametros
-	 * passados eh funcao. Dessa forma, um novo escopo vazio eh definido e as consequentes associa��es
+	 * passados eh funcao. Dessa forma, um novo escopo vazio eh definido e as consequentes associacoes
 	 * se sao feitas apos essas avaliacoes.
 	 * 
 	 * @author rbonifacio
@@ -140,13 +140,13 @@ public class ExpressaoAplicacao implements Expressao {
 		List<ArgumentoFormal> argumentosFormais = f.getArgumentos();
 		List<Expressao> exp = new ArrayList<Expressao>();
 		
-		//Executa os par�metros recebidos pela fun��o e os salva em exp.
+		//Executa os parametros recebidos pela funcao e os salva em exp.
 		for(int i = 0; i < argumentosFormais.size(); i++) {
 			exp.add(parametros.get(i).avaliar());
 		}
 		
 		//Inicializa um novo escopo vazio.
-		//Um novo escopo se eh inicializado apos avaliar todas express�es recebidas
+		//Um novo escopo se eh inicializado apos avaliar todas expressoes recebidas
 		//como parametro. Caso contrario, Express�es RefId perderiam o valor corrente do escopo
 		//antes de serem avaliadas. 
 		//Lembrete: deve-se sempre guardar valores inteiros ou booleano no escopo.

@@ -2,12 +2,24 @@ package br.unb.cic.mh.valor;
 
 public abstract class ValorConcreto<T> implements Valor {
 
+	// ===========================================================
+	// Atributos
+	// ===========================================================
+	
 	protected T valor;
 
+	// ===========================================================
+	// Construtores
+	// ===========================================================
+	
 	public ValorConcreto(T valor) {
 		this.valor = valor;
 	}
 
+	// ===========================================================
+	// Métodos
+	// ===========================================================
+	
 	@Override
 	public Valor avaliar() {
 		return this;
@@ -17,10 +29,6 @@ public abstract class ValorConcreto<T> implements Valor {
 	public boolean checarTipo() {
 		return true;
 	}
-	
-	public T getValor() {
-		return valor;
-	}
 
 	@Override
 	public boolean equals(Object outroValor) {
@@ -29,6 +37,14 @@ public abstract class ValorConcreto<T> implements Valor {
 			return valorConcreto.valor.equals(valor);
 		}
 		return false;
+	}
+	
+	// ===========================================================
+	// Getters & Setters
+	// ===========================================================
+	
+	public T getValor() {
+		return valor;
 	}
 
 }

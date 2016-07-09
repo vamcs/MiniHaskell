@@ -5,10 +5,18 @@ import br.unb.cic.mh.Tipo;
 
 public class ValorInteiro extends ValorConcreto<Integer>{
 
+	// ===========================================================
+	// Construtores
+	// ===========================================================
+	
 	public ValorInteiro(Integer valor) {
 		super(valor);
 	}
 
+	// ===========================================================
+	// Métodos
+	// ===========================================================
+	
 	@Override
 	public Tipo tipo() {
 		return Tipo.INTEIRO;

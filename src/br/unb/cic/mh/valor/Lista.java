@@ -3,11 +3,26 @@ package br.unb.cic.mh.valor;
 import br.unb.cic.mh.Tipo;
 import br.unb.cic.mh.visitor.Visitor;
 
+/**
+ * Superclasse que especifica o tipo lista, a qual contém uma lista encadeada com
+ * valores inteiros, booleanos ou uma lista.
+ * 
+ * @author vamcs
+ *
+ */
 //TODO: organizar classes e criar cabeca da lista
 public abstract class Lista implements Valor {
 
+	// ===========================================================
+	// Atributos
+	// ===========================================================
+	
 	protected Valor valor;
 	protected Lista prox;
+	
+	// ===========================================================
+	// Construtores
+	// ===========================================================
 	
 	public Lista(Valor valor) {
 		this.valor = valor;
@@ -15,14 +30,10 @@ public abstract class Lista implements Valor {
 		
 	}
 
-	public Valor getValor() {
-		return valor;
-	}
-
-	public Lista getProx() {
-		return prox;
-	}
-
+	// ===========================================================
+	// Métodos
+	// ===========================================================
+	
 	public static void insereLista(ListaNaoVazia<?> local, Lista novo) {
 
 		if (novo.getClass() != ListaVazia.class) {
@@ -42,10 +53,10 @@ public abstract class Lista implements Valor {
 	}
 	
 	public static int tamanhoLista(Lista lista) {
-		int tamanho=0;
+		int tamanho = 0;
 		//for (Lista aux = lista;aux.getValor() != null;aux = aux.getProx(),tamanho++) {}
 		if(lista.getProx() != null)
-			return tamanhoLista(lista.getProx())+1;
+			return tamanhoLista(lista.getProx()) + 1;
 		
 		else return tamanho; 
 	}
@@ -63,10 +74,20 @@ public abstract class Lista implements Valor {
 		return true;
 	}
 
-
 	@Override
 	public void aceitar(Visitor v) {
 		v.visitar(this);
 	}
 
+	// ===========================================================
+	// Getters & Setters
+	// ===========================================================
+	
+	public Valor getValor() {
+		return valor;
+	}
+
+	public Lista getProx() {
+		return prox;
+	}
 }

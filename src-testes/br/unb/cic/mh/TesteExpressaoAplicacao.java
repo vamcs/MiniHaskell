@@ -52,6 +52,16 @@ public class TesteExpressaoAplicacao extends TesteUtil {
 		Assert.assertEquals(vi(5), ap.avaliar());
 	}
 
+	/**
+	 * Implementacao da funcao recursiva fatorial.
+	 * Sao utilizadas duas expressoes aplicacao, uma expressao sub, uma expressao mult,
+	 * uma expressao refid, uma expressao igualdade e uma expressao IfThenElse.
+	 * 
+	 * A expressao aplicacao interna executa a chamada recursiva de fatorial passando o valor n - 1,
+	 * enquanto a aplicacao externa inicia a chamada da funcao fatorial.
+	 * 
+	 * @author vamcs
+	 */
 	@Test
 	public void testeFatorial() {
 		ValorInteiro v1 = vi(1);
@@ -61,25 +71,31 @@ public class TesteExpressaoAplicacao extends TesteUtil {
 		ExpressaoIgualdade<ValorInteiro> igual = new ExpressaoIgualdade<ValorInteiro>(n, v0);
 		
 		AmbienteExecucao ambiente = AmbienteExecucao.instance();
-
+		
+		//fat(n - 1)
 		ExpressaoAplicacao apInterna = (new ExpressaoAplicacao())
 				.nome("fat")
 				.parametro(sub);
 		
+		//mult(n, fat(n - 1))
 		ExpressaoMult mult = mult(n, apInterna);
 		
+		//if n == 0 then 0 else mult(n, fat(n - 1))
 		ExpressaoIfThenElse ite = new ExpressaoIfThenElse(igual, v1, mult);
 		DeclFuncao fat = (new DeclFuncao())
 				.nome("fat")
 				.argumento(new ArgumentoFormal("n", Tipo.INTEIRO))
 				.corpo(ite);
 		
+		//declara funcao no ambiente de execucao
 		ambiente.declararFuncao(fat);
 		
+		//fat(.) -- inicio da funcao fatorial
 		ExpressaoAplicacao ap = (new ExpressaoAplicacao()).nome("fat").parametro(vi(10));
 
 		Assert.assertEquals(vi(3628800), ap.avaliar());
-		//Exemplo de quando nao eh fornecido a quantidade necessaria de parametros
+		
+		//Exemplo de quando nao eh fornecida a quantidade necessaria de parametros
 		ap = (new ExpressaoAplicacao()).nome("fat");
 		try{
 			ap.avaliar();
@@ -87,7 +103,5 @@ public class TesteExpressaoAplicacao extends TesteUtil {
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
 	}
-
 }
