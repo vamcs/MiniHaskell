@@ -1,6 +1,7 @@
 package br.unb.cic.mh.valor;
 
 import br.unb.cic.mh.Tipo;
+import br.unb.cic.mh.visitor.PPVisitor;
 import br.unb.cic.mh.visitor.Visitor;
 
 /**
@@ -34,33 +35,44 @@ public abstract class Lista implements Valor {
 	// Métodos
 	// ===========================================================
 	
-	public static void insereLista(ListaNaoVazia<?> local, Lista novo) {
-
-		if (novo.getClass() != ListaVazia.class) {
-			Lista aux ;
-			aux=local;
-			while(!(aux.prox instanceof ListaVazia)){
-				System.out.println("Passou");
-				aux=aux.prox;
-			}
-			aux.prox = novo;
-			//novo.prox = local.prox;
-			//local.prox = novo;
-			System.out.println("");
+	public static Lista pop(Lista lista) {
+		return lista.getProx();
+	}
+	
+	public Lista cons(ListaNaoVazia<?> novo) {
+		assert(novo.tipo().equals(this.tipo()));
+		novo.prox = this;
+		return novo;
+	}
+	
+	public static Valor elemento(Lista lista, int i) {
+		for (int j = 1; j < i; j++) {
+			lista = lista.getProx();
+		}
+		
+		return lista.getValor();
+	}
+	
+	public static void insere(Lista local, Lista novo) {
+		assert(novo.tipo().equals(local.tipo()));
+		if (!(novo instanceof ListaVazia)) {
+			novo.prox = local.prox;
+			local.prox = novo;
 		} else {
 			throw new RuntimeException("Proibido inserir lista vazia.");
 		}
 	}
 	
-	public static int tamanhoLista(Lista lista) {
+	public static int tamanho(Lista lista) {
 		int tamanho = 0;
 		//for (Lista aux = lista;aux.getValor() != null;aux = aux.getProx(),tamanho++) {}
-		if(lista.getProx() != null)
-			return tamanhoLista(lista.getProx()) + 1;
-		
+		if(lista.getProx() != null) {
+			return tamanho(lista.getProx()) + 1;
+		}
+			
 		else return tamanho; 
 	}
-
+	
 	// Aqui foi levado em conta o fato do MiniHaskell herdar a caracteristica do haskell ser fortemente tipada
 	@Override
 	public Tipo tipo() {
@@ -70,8 +82,19 @@ public abstract class Lista implements Valor {
 
 	@Override
 	public boolean checarTipo() {
-		// TODO Auto-generated method stub
-		return true;
+		Lista lista = this;
+		Boolean res = true;
+		
+		while (!(lista.prox instanceof ListaVazia) && res == true) {
+			if (lista.tipo().equals(prox.tipo())) {
+				lista = lista.prox;
+			}
+			else {
+				res = false;
+			}
+		}
+		
+		return res;
 	}
 
 	@Override
@@ -90,4 +113,5 @@ public abstract class Lista implements Valor {
 	public Lista getProx() {
 		return prox;
 	}
+
 }
