@@ -48,13 +48,21 @@ public class TesteLista extends TesteUtil {
 		
 		System.out.println(Lista.tamanho(lista));
 		
-		lista = Lista.pop(lista);
-		
-		lista.aceitar(prettyPrinter);
-		
-		Valor valor2 = Lista.elemento(lista, 1);
-		
+		Valor valor2 = Lista.elemento(lista, 3);
+		System.out.print("Elemento 3: ");
 		valor2.aceitar(prettyPrinter);
+		System.out.println("");
+		
+		for (int i = 0; i < 5; i++) {
+			try {
+				lista = Lista.pop(lista);
+			}
+			catch (RuntimeException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+			
+		lista.aceitar(prettyPrinter);
 		
 	}
 	

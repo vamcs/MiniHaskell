@@ -36,6 +36,9 @@ public abstract class Lista implements Valor {
 	// ===========================================================
 	
 	public static Lista pop(Lista lista) {
+		if (lista instanceof ListaVazia) {
+			throw new RuntimeException("Lista vazia, impossivel remover elemento.");
+		}
 		return lista.getProx();
 	}
 	
@@ -46,6 +49,15 @@ public abstract class Lista implements Valor {
 	}
 	
 	public static Valor elemento(Lista lista, int i) {
+		
+		if (lista instanceof ListaVazia) {
+			throw new RuntimeException("Lista vazia.");
+		}
+		
+		if (i > tamanho(lista) || i <= 0) {
+			throw new RuntimeException("Posicao invalida.");
+		}
+		
 		for (int j = 1; j < i; j++) {
 			lista = lista.getProx();
 		}
@@ -65,7 +77,7 @@ public abstract class Lista implements Valor {
 	
 	public static int tamanho(Lista lista) {
 		int tamanho = 0;
-		//for (Lista aux = lista;aux.getValor() != null;aux = aux.getProx(),tamanho++) {}
+		
 		if(lista.getProx() != null) {
 			return tamanho(lista.getProx()) + 1;
 		}
