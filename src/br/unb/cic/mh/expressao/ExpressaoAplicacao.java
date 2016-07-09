@@ -75,18 +75,14 @@ public class ExpressaoAplicacao implements Expressao {
 		return this;
 	}
 	
-	//Ainda n�o implementado.
 	@Override
 	public Tipo tipo() {
-		// TODO Auto-generated method stub
-		return null;
+		return AmbienteExecucao.instance().obterDeclaracaoFuncao(nome).getCorpo().tipo();
 	}
-	
-	//Ainda n�o implementado.
+
 	@Override
 	public boolean checarTipo() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
 	/**

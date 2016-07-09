@@ -4,6 +4,15 @@ public class ListaNaoVazia<T extends Valor> extends Lista {
 
 	public ListaNaoVazia(Valor valor) {
 		super(valor);
+		if(valor instanceof Lista){
+			Lista aux;
+			aux=this;
+			while(!(aux.prox instanceof ListaVazia)){
+				System.out.println("Passou");
+				aux=aux.prox;
+			}
+			aux.prox = this;
+		}
 		this.prox = new ListaVazia();
 	}
 	

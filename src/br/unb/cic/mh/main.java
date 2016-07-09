@@ -10,6 +10,10 @@ import br.unb.cic.mh.expressao.binaria.booleana.ExpressaoIgualdade;
 import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoDiv;
 import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoMult;
 import br.unb.cic.mh.expressao.binaria.inteira.ExpressaoSub;
+import br.unb.cic.mh.valor.Lista;
+import br.unb.cic.mh.valor.ListaNaoVazia;
+import br.unb.cic.mh.valor.ListaVazia;
+import br.unb.cic.mh.valor.Valor;
 import br.unb.cic.mh.valor.ValorInteiro;
 import br.unb.cic.mh.visitor.PPVisitor;
 
@@ -43,7 +47,7 @@ public class main {
 
 		Assert.assertEquals(v120, ap.avaliar());
 		
-		ValorInteiro res = (ValorInteiro) ap.avaliar();
+		//ValorInteiro res = (ValorInteiro) ap.avaliar();
 		//System.out.println(res.getValor());
 		
 		ap = (new ExpressaoAplicacao()).nome("fat").parametro(v1);
@@ -54,7 +58,14 @@ public class main {
 			System.out.println(e.getMessage());
 		}
 
-		
+		Lista lista = new ListaNaoVazia<ValorInteiro>(v1);
+		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v1));
+		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v5));	
+		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v2));
+		Lista lista2 = new ListaNaoVazia<ValorInteiro>(v2);
+		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista2, new ListaNaoVazia<ValorInteiro>(v1));
+		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista,(ListaNaoVazia<ValorInteiro>)lista2);
+		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v5));	
 		PPVisitor pp = new PPVisitor();
 		System.out.println("******************** Teste Pretty Printer *********************");
 		System.out.println();
@@ -81,7 +92,13 @@ public class main {
 		System.out.println();
 		pp.visitar(ite2);
 		System.out.println();
-		
+		System.out.println();
+		System.out.println("***************** Pretty Printer Lista *****************");
+		System.out.println();
+		System.out.println();
+		pp.visitar(lista);
+		System.out.println();
+		pp.visitar(lista2);
 	}
 	
 }

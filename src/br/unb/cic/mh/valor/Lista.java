@@ -26,39 +26,41 @@ public abstract class Lista implements Valor {
 	public static void insereLista(ListaNaoVazia<?> local, Lista novo) {
 
 		if (novo.getClass() != ListaVazia.class) {
-			novo.prox = local.prox;
-			local.prox = novo;
+			Lista aux ;
+			aux=local;
+			while(!(aux.prox instanceof ListaVazia)){
+				System.out.println("Passou");
+				aux=aux.prox;
+			}
+			aux.prox = novo;
+			//novo.prox = local.prox;
+			//local.prox = novo;
+			System.out.println("");
 		} else {
 			throw new RuntimeException("Proibido inserir lista vazia.");
 		}
 	}
 	
-//	public static int tamanhoLista(Lista lista) {
-//		
-//		if (lista.getValor() != null) {
-//			//Lista com 1 ou mais elementos.
-//			while (lista.get) {
-//				
-//			}
-//		}
-//		else {
-//			//Lista vazia.
-//			return 0;
-//		}
-//		
-//		return tamanho;
-//	}
-	
+	public static int tamanhoLista(Lista lista) {
+		int tamanho=0;
+		//for (Lista aux = lista;aux.getValor() != null;aux = aux.getProx(),tamanho++) {}
+		if(lista.getProx() != null)
+			return tamanhoLista(lista.getProx())+1;
+		
+		else return tamanho; 
+	}
+
+	// Aqui foi levado em conta o fato do MiniHaskell herdar a caracteristica do haskell ser fortemente tipada
 	@Override
 	public Tipo tipo() {
 		// TODO Auto-generated method stub
-		return null;
+		return valor.tipo();
 	}
 
 	@Override
 	public boolean checarTipo() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 
