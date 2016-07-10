@@ -1,3 +1,8 @@
+/***
+ * Esse codigo apresenta alguns testes para fim de demonstracao, para encontrar os demais testes em JUnit va em src-testes
+ * 
+ * */
+
 package br.unb.cic.mh;
 
 import org.junit.Assert;
@@ -34,10 +39,22 @@ public class main {
 		ExpressaoAplicacao apInterna = (new ExpressaoAplicacao())
 				.nome("fat")
 				.parametro(sub);
-
+		
+		/*n * fat(n - 1)*/
+		
 		ExpressaoDiv div = new ExpressaoDiv(n, apInterna);
 		ExpressaoMult mult = new ExpressaoMult(n, apInterna);
+		
+		/*if((n == 0)){
+			then 1
+			else 2
+		}*/
+		
 		ExpressaoIfThenElse ite = new ExpressaoIfThenElse(new ExpressaoIgualdade<ValorInteiro>(n, v0), v1,v2);
+		/*if((n \= 0)){
+			then 2
+			else 3
+		}*/
 		ExpressaoIfThenElse ite2 = new ExpressaoIfThenElse(new ExpressaoDiferenca<ValorInteiro>(v0, v1), v2,v3);
 		DeclFuncao fat = (new DeclFuncao()).nome("fat").argumento(new ArgumentoFormal("n", Tipo.INTEIRO)).corpo(ite);
 		
@@ -57,16 +74,23 @@ public class main {
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-
+		/*lista: [1 10 2 2 10 1]*/
 		Lista lista = new ListaNaoVazia<ValorInteiro>(v1);
-		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v1));
-		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v5));	
-		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v2));
+		Lista.insere((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v1));
+		Lista.insere((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v5));	
+		Lista.insere((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v2));
+		/*lista: [2 2 10 1]*/
 		Lista lista2 = new ListaNaoVazia<ValorInteiro>(v2);
-		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista2, new ListaNaoVazia<ValorInteiro>(v1));
-		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista,(ListaNaoVazia<ValorInteiro>)lista2);
-		Lista.insereLista((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v5));	
+		Lista.insere((ListaNaoVazia<ValorInteiro>)lista2, new ListaNaoVazia<ValorInteiro>(v1));
+		Lista.insere((ListaNaoVazia<ValorInteiro>)lista,(ListaNaoVazia<ValorInteiro>)lista2);
+		Lista.insere((ListaNaoVazia<ValorInteiro>)lista, new ListaNaoVazia<ValorInteiro>(v5));	
 		PPVisitor pp = new PPVisitor();
+		
+		
+		/* Testes com Pretty Printer */
+		
+		
+		
 		System.out.println("******************** Teste Pretty Printer *********************");
 		System.out.println();
 		System.out.println();
