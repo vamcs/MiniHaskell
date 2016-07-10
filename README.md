@@ -60,6 +60,11 @@ Implementações realizadas:
 			+ ListaVazia(br.unb.cic.mh.valor);
 			+ ListaNaoVazia(br.unb.cic.mh.valor);
 			
+		*  Refactoring:
+		
+			+Refactoring(src/br.unb.cic.mh.visitor);		
+			 
+			
 		*  Tambem foram impĺementantados testes adicionais:
 			
 			+ ExpressaoAnd(src-testes/br.unb.cic.mh);
