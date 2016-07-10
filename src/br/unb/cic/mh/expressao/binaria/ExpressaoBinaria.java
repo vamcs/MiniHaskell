@@ -50,4 +50,5 @@ public abstract class ExpressaoBinaria implements Expressao{
 	public Expressao getSub2() {
 		return sub2;
 	}
+	
 }
